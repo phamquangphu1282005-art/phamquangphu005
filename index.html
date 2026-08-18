@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu bản thân - Phạm Quang Phú</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a, #2563eb, #38bdf8);
+            color: white;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            color: #fff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #bae6fd;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            min-height: 500px;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        .content h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .content h1 span {
+            color: #bae6fd;
+        }
+
+        .content h2 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #e0f2fe;
+        }
+
+        .avatar {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            border: 5px solid rgba(255,255,255,0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 90px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .info {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 30px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .info h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .info-item strong {
+            color: #bae6fd;
+        }
+
+        .hobbies {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .hobbies span {
+            display: inline-block;
+            background: #0ea5e9;
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin: 7px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .content h1 {
+                font-size: 40px;
+            }
+
+            .avatar {
+                width: 220px;
+                height: 220px;
+                font-size: 65px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>🌐 Phạm Quang Phú</h2>
+
+        <nav>
+            <a href="#home">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#hobby">Sở thích</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <!-- Phần giới thiệu -->
+        <section class="hero" id="home">
+
+            <div class="content">
+                <h1>Xin chào, tôi là <span>Phạm Quang Phú</span> 👋</h1>
+
+                <h2>💻 Học sinh Công nghệ thông tin 1 - K24</h2>
+
+                <p>
+                    Chào mừng bạn đến với trang giới thiệu bản thân của tôi.
+                    Tôi là Phạm Quang Phú, hiện đang là học sinh lớp
+                    <strong>Công nghệ thông tin 1 - K24</strong>.
+                </p>
+
+                <p>
+                    Tôi yêu thích công nghệ, máy tính và lập trình.
+                    Tôi luôn mong muốn học hỏi thêm những kiến thức mới
+                    để nâng cao kỹ năng CNTT của mình.
+                </p>
+            </div>
+
+            <div class="avatar">
+                👨‍💻
+            </div>
+
+        </section>
+
+        <!-- Thông tin cá nhân -->
+        <section class="info" id="about">
+
+            <h2>📋 Thông tin cá nhân</h2>
+
+            <div class="info-grid">
+
+                <div class="info-item">
+                    <strong>👤 Họ và tên</strong>
+                    <p>Phạm Quang Phú</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>🎓 Lớp</strong>
+                    <p>Công nghệ thông tin 1 - K24</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>💻 Chuyên ngành</strong>
+                    <p>Công nghệ thông tin</p>
+                </div>
+
+                <div class="info-item">
+                    <strong>🎯 Mục tiêu</strong>
+                    <p>Trở thành một người giỏi về CNTT</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Sở thích -->
+        <section class="info hobbies" id="hobby">
+
+            <h2>❤️ Sở thích của tôi</h2>
+            Q
+            <span>💻 Lập trình</span>
+            <span>🎮 Chơi game</span>
+            <span>🎵 Nghe nhạc</span>
+            <span>📚 Học công nghệ</span>
+            <span>🌐 Khám phá Internet</span>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Phạm Quang Phú | Công nghệ thông tin 1 - K24</p>
+    </footer>
+
+</body>
+</html>
