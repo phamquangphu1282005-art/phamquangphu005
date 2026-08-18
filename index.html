@@ -1,217 +1,596 @@
 <!DOCTYPE html>
+
 <html lang="vi">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Giới thiệu bản thân - Phạm Quang Phú</title>
 
+
+
     <style>
+        
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
             font-family: Arial, sans-serif;
+
         }
+
+
 
         body {
+
             min-height: 100vh;
+
             background: linear-gradient(135deg, #0f172a, #2563eb, #38bdf8);
+
             color: white;
+
         }
+
+
 
         header {
+
             padding: 25px 8%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
         }
+
+
 
         header h2 {
+
             color: #fff;
+
         }
+
+
 
         nav a {
+
             color: white;
+
             text-decoration: none;
+
             margin-left: 25px;
+
             font-weight: bold;
+
         }
+
+
 
         nav a:hover {
+
             color: #bae6fd;
+
         }
+
+
 
         .container {
+
             width: 85%;
+
             max-width: 1100px;
+
             margin: 50px auto;
+
         }
+
+
 
         .hero {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 50px;
+
             min-height: 500px;
+
         }
+
+
 
         .content {
+
             flex: 1;
+
         }
+
+
 
         .content h1 {
+
             font-size: 55px;
+
             margin-bottom: 15px;
+
         }
+
+
 
         .content h1 span {
+
             color: #bae6fd;
+
         }
+
+
 
         .content h2 {
+
             font-size: 25px;
+
             margin-bottom: 20px;
+
         }
+
+
 
         .content p {
+
             font-size: 18px;
+
             line-height: 1.8;
+
             color: #e0f2fe;
+
         }
+
+
 
         .avatar {
+
             width: 300px;
+
             height: 300px;
+
             border-radius: 50%;
+
             background: rgba(255,255,255,0.15);
+
             border: 5px solid rgba(255,255,255,0.6);
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             font-size: 90px;
+
             box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+
         }
+
+
 
         .info {
+
             background: rgba(255,255,255,0.12);
+
             backdrop-filter: blur(10px);
+
             border: 1px solid rgba(255,255,255,0.2);
+
             border-radius: 20px;
+
             padding: 35px;
+
             margin-top: 30px;
+
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
         }
+
+
 
         .info h2 {
-            text-align: center;
+
             margin-bottom: 25px;
+
         }
+
+
 
         .info-grid {
+
             display: grid;
+
             grid-template-columns: repeat(2, 1fr);
+
             gap: 20px;
+
         }
+
+
 
         .info-item {
+
             background: rgba(255,255,255,0.1);
+
             padding: 20px;
+
             border-radius: 12px;
+
         }
+
+
 
         .info-item strong {
+
             color: #bae6fd;
+
         }
+
+
 
         .hobbies {
+
             margin-top: 30px;
+
             text-align: center;
+
         }
+
+
 
         .hobbies span {
+
             display: inline-block;
+
             background: #0ea5e9;
+
             padding: 10px 20px;
+
             border-radius: 30px;
+
             margin: 7px;
+
         }
+
+
+
+        /* Phần Website của sinh viên */
+
+        .student-websites {
+
+            background: rgba(255, 255, 255, 0.95);
+
+            color: #1e293b;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            margin-top: 30px;
+
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+
+        }
+
+
+
+        .student-websites h2 {
+
+            margin-bottom: 20px;
+
+            color: #0f172a;
+
+        }
+
+
+
+        .form-group {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+
+        .form-group input {
+
+            flex: 1;
+
+            padding: 12px 15px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+
+        .form-group button {
+
+            background: #1e3a8a;
+
+            color: white;
+
+            border: none;
+
+            padding: 0 25px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .form-group button:hover {
+
+            background: #2563eb;
+
+        }
+
+
+
+        .website-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 15px;
+
+        }
+
+
+
+        .website-card {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 15px 20px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+
+        }
+
+
+
+        .website-info h4 {
+
+            font-size: 16px;
+
+            color: #0f172a;
+
+            margin-bottom: 4px;
+
+        }
+
+
+
+        .website-info a {
+
+            color: #2563eb;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .website-info a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+
+        .website-actions {
+
+            display: flex;
+
+            gap: 8px;
+
+        }
+
+
+
+        .btn {
+
+            padding: 6px 14px;
+
+            border-radius: 6px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border: none;
+
+        }
+
+
+
+        .btn-open {
+
+            background: #f1f5f9;
+
+            color: #0f172a;
+
+            border: 1px solid #cbd5e1;
+
+        }
+
+
+
+        .btn-edit {
+
+            background: #fef08a;
+
+            color: #713f12;
+
+        }
+
+
+
+        .btn-delete {
+
+            background: #fee2e2;
+
+            color: #991b1b;
+
+        }
+
+
 
         footer {
+
             text-align: center;
+
             padding: 30px;
+
             margin-top: 50px;
+
             background: rgba(0,0,0,0.2);
+
         }
+
+
 
         @media (max-width: 768px) {
+
             .hero {
+
                 flex-direction: column-reverse;
+
                 text-align: center;
+
             }
 
-            .content h1 {
-                font-size: 40px;
-            }
+            .content h1 { font-size: 40px; }
 
-            .avatar {
-                width: 220px;
-                height: 220px;
-                font-size: 65px;
-            }
+            .avatar { width: 220px; height: 220px; font-size: 65px; }
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+            .info-grid { grid-template-columns: 1fr; }
 
-            nav {
-                display: none;
-            }
+            nav { display: none; }
+
+            .form-group { flex-direction: column; }
+
+            .website-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+
         }
+
     </style>
+
 </head>
+
+
 
 <body>
 
+
+
     <header>
+
         <h2>🌐 Phạm Quang Phú</h2>
 
         <nav>
+
             <a href="#home">Trang chủ</a>
+
             <a href="#about">Giới thiệu</a>
+
             <a href="#hobby">Sở thích</a>
+
+            <a href="#websites">Web sinh viên</a>
+
         </nav>
+
     </header>
+
+
 
     <main class="container">
 
+
+
         <!-- Phần giới thiệu -->
+
         <section class="hero" id="home">
 
             <div class="content">
+
                 <h1>Xin chào, tôi là <span>Phạm Quang Phú</span> 👋</h1>
 
-                <h2>💻 Học sinh Công nghệ thông tin 1 - K24</h2>
+                <h2>💻 Lớp Công nghệ thông tin 1 - K24</h2>
 
                 <p>
+
                     Chào mừng bạn đến với trang giới thiệu bản thân của tôi.
-                    Tôi là Phạm Quang Phú, hiện đang là học sinh lớp
-                    <strong>Công nghệ thông tin 1 - K24</strong>.
+
+                    Tôi là Phạm Quang Phú, hiện đang học tập tại lớp <strong>Công nghệ thông tin 1 - K24</strong>.
+
                 </p>
 
                 <p>
-                    Tôi yêu thích công nghệ, máy tính và lập trình.
-                    Tôi luôn mong muốn học hỏi thêm những kiến thức mới
-                    để nâng cao kỹ năng CNTT của mình.
+
+                    Tôi yêu thích công nghệ, lập trình và luôn mong muốn học hỏi thêm những kiến thức mới.
+
                 </p>
+
             </div>
 
-            <div class="avatar">
-                👨‍💻
-            </div>
+            <div class="avatar">👨‍💻</div>
 
         </section>
 
+
+
         <!-- Thông tin cá nhân -->
+
         <section class="info" id="about">
 
             <h2>📋 Thông tin cá nhân</h2>
@@ -219,47 +598,250 @@
             <div class="info-grid">
 
                 <div class="info-item">
+
                     <strong>👤 Họ và tên</strong>
+
                     <p>Phạm Quang Phú</p>
+
                 </div>
 
                 <div class="info-item">
+
                     <strong>🎓 Lớp</strong>
+
                     <p>Công nghệ thông tin 1 - K24</p>
+
                 </div>
 
                 <div class="info-item">
+
                     <strong>💻 Chuyên ngành</strong>
+
                     <p>Công nghệ thông tin</p>
+
                 </div>
 
                 <div class="info-item">
+
                     <strong>🎯 Mục tiêu</strong>
-                    <p>Trở thành một người giỏi về CNTT</p>
+
+                    <p>Trở thành một lập trình viên giỏi</p>
+
                 </div>
 
             </div>
 
         </section>
 
+
+
         <!-- Sở thích -->
+
         <section class="info hobbies" id="hobby">
 
             <h2>❤️ Sở thích của tôi</h2>
-            Q
+
             <span>💻 Lập trình</span>
+
             <span>🎮 Chơi game</span>
+
             <span>🎵 Nghe nhạc</span>
+
             <span>📚 Học công nghệ</span>
-            <span>🌐 Khám phá Internet</span>
 
         </section>
 
+
+
+        <!-- Phần Website của sinh viên có chức năng Đầy đủ -->
+
+        <section class="student-websites" id="websites">
+
+            <h2>Website của sinh viên</h2>
+
+           
+
+            <div class="form-group">
+
+                <input type="text" id="nameInput" placeholder="Tên sinh viên">
+
+                <input type="text" id="urlInput" placeholder="https://tenwebsite-cua-ban.com">
+
+                <button id="addBtn">Thêm website</button>
+
+            </div>
+
+            <p style="font-size: 13px; color: #64748b; margin-top: -15px; margin-bottom: 25px;">Nhập tên và link website cá nhân để chia sẻ với mọi người.</p>
+
+
+
+            <div class="website-list" id="websiteList">
+
+                <!-- Hoàng Phú Tân -->
+
+               
+
+               
+
+            </div>
+
+        </section>
+
+
+
     </main>
 
+
+
     <footer>
+
         <p>© 2026 - Phạm Quang Phú | Công nghệ thông tin 1 - K24</p>
+
     </footer>
 
+
+
+    <!-- Đoạn mã JavaScript giúp các nút bấm hoạt động thực tế -->
+
+    <script>
+
+        const addBtn = document.getElementById('addBtn');
+
+        const nameInput = document.getElementById('nameInput');
+
+        const urlInput = document.getElementById('urlInput');
+
+        const websiteList = document.getElementById('websiteList');
+
+
+
+        // 1. Chức năng Thêm website mới
+
+        addBtn.addEventListener('click', () => {
+
+            const name = nameInput.value.trim();
+
+            const url = urlInput.value.trim();
+
+
+
+            if (!name || !url) {
+
+                alert('Vui lòng nhập đầy đủ tên sinh viên và đường dẫn website!');
+
+                return;
+
+            }
+
+
+
+            const card = document.createElement('div');
+
+            card.className = 'website-card';
+
+            card.innerHTML = `
+
+                <div class="website-info">
+
+                    <h4>${name}</h4>
+
+                    <a href="${url}" target="_blank">${url}</a>
+
+                </div>
+
+                <div class="website-actions">
+
+                    <button class="btn btn-open" onclick="window.open('${url}', '_blank')">Mở website</button>
+
+                    <button class="btn btn-edit">Sửa</button>
+
+                    <button class="btn btn-delete">Xóa</button>
+
+                </div>
+
+            `;
+
+           
+
+            websiteList.appendChild(card);
+
+            nameInput.value = '';
+
+            urlInput.value = '';
+
+        });
+
+
+
+        // 2. Chức năng Xóa và Sửa website trong danh sách
+
+        websiteList.addEventListener('click', (e) => {
+
+            // Nút Xóa
+
+            if (e.target.classList.contains('btn-delete')) {
+
+                e.target.closest('.website-card').remove();
+
+            }
+
+
+
+            // Nút Sửa / Lưu
+
+            if (e.target.classList.contains('btn-edit')) {
+
+                const card = e.target.closest('.website-card');
+
+                const h4 = card.querySelector('h4');
+
+                const a = card.querySelector('a');
+
+
+
+                if (e.target.innerText === 'Sửa') {
+
+                    h4.innerHTML = `<input type="text" value="${h4.innerText}" id="editName" style="padding: 4px; width: 100%;">`;
+
+                    a.outerHTML = `<input type="text" value="${a.href}" id="editUrl" style="padding: 4px; width: 100%; margin-top: 4px;">`;
+
+                    e.target.innerText = 'Lưu';
+
+                    e.target.style.background = '#22c55e';
+
+                    e.target.style.color = '#fff';
+
+                } else {
+
+                    const newName = document.getElementById('editName').value;
+
+                    const newUrl = document.getElementById('editUrl').value;
+
+
+
+                    card.querySelector('.website-info').innerHTML = `
+
+                        <h4>${newName}</h4>
+
+                        <a href="${newUrl}" target="_blank">${newUrl}</a>
+
+                    `;
+
+                    e.target.innerText = 'Sửa';
+
+                    e.target.style.background = '';
+
+                    e.target.style.color = '';
+
+                }
+
+            }
+
+        });
+
+    </script>
+
 </body>
+
+
 </html>
