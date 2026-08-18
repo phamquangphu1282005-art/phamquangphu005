@@ -1,629 +1,846 @@
 <!DOCTYPE html>
-
 <html lang="vi">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Giới thiệu bản thân - Phạm Quang Phú</title>
-
-
+    <title>Phạm Quang Phú | IT Developer</title>
 
     <style>
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap');
 
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
-            font-family: Arial, sans-serif;
-
         }
 
-
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
-
-            min-height: 100vh;
-
-            background: linear-gradient(135deg, #0f172a, #2563eb, #38bdf8);
-
-            color: white;
-
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+            background: #020617;
+            overflow-x: hidden;
         }
 
+        /* ================= BACKGROUND ================= */
 
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(0, 212, 255, .18), transparent 30%),
+                radial-gradient(circle at 85% 30%, rgba(124, 58, 237, .2), transparent 30%),
+                radial-gradient(circle at 50% 90%, rgba(14, 165, 233, .12), transparent 35%),
+                #020617;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            opacity: .25;
+            background-image:
+                linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #00d9ff;
+            filter: blur(130px);
+            opacity: .12;
+            top: 20%;
+            left: -100px;
+            z-index: -1;
+            animation: floatGlow 7s infinite alternate ease-in-out;
+        }
+
+        .glow2 {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            filter: blur(130px);
+            opacity: .13;
+            right: -100px;
+            bottom: 10%;
+            z-index: -1;
+            animation: floatGlow 8s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes floatGlow {
+            from {
+                transform: translateY(-40px);
+            }
+            to {
+                transform: translateY(60px);
+            }
+        }
+
+        /* ================= HEADER ================= */
 
         header {
-
-            padding: 25px 8%;
-
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 18px 7%;
             display: flex;
-
+            align-items: center;
             justify-content: space-between;
 
-            align-items: center;
-
+            background: rgba(2, 6, 23, .7);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,.08);
         }
 
-
-
-        header h2 {
-
-            color: #fff;
-
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 21px;
+            letter-spacing: 1px;
         }
 
+        .logo span {
+            color: #22d3ee;
+            text-shadow: 0 0 20px #22d3ee;
+        }
 
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
         nav a {
-
-            color: white;
-
+            position: relative;
+            color: #cbd5e1;
             text-decoration: none;
-
-            margin-left: 25px;
-
-            font-weight: bold;
-
+            font-size: 14px;
+            font-weight: 600;
+            transition: .3s;
         }
 
-
+        nav a::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -7px;
+            background: #22d3ee;
+            box-shadow: 0 0 10px #22d3ee;
+            transition: .3s;
+        }
 
         nav a:hover {
-
-            color: #bae6fd;
-
+            color: #22d3ee;
         }
 
+        nav a:hover::after {
+            width: 100%;
+        }
 
+        /* ================= CONTAINER ================= */
 
         .container {
-
-            width: 85%;
-
-            max-width: 1100px;
-
-            margin: 50px auto;
-
+            width: 88%;
+            max-width: 1200px;
+            margin: auto;
         }
 
-
+        /* ================= HERO ================= */
 
         .hero {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 50px;
-
-            min-height: 500px;
-
-        }
-
-
-
-        .content {
-
-            flex: 1;
-
-        }
-
-
-
-        .content h1 {
-
-            font-size: 55px;
-
-            margin-bottom: 15px;
-
-        }
-
-
-
-        .content h1 span {
-
-            color: #bae6fd;
-
-        }
-
-
-
-        .content h2 {
-
-            font-size: 25px;
-
-            margin-bottom: 20px;
-
-        }
-
-
-
-        .content p {
-
-            font-size: 18px;
-
-            line-height: 1.8;
-
-            color: #e0f2fe;
-
-        }
-
-
-
-        .avatar {
-
-            width: 300px;
-
-            height: 300px;
-
-            border-radius: 50%;
-
-            background: rgba(255,255,255,0.15);
-
-            border: 5px solid rgba(255,255,255,0.6);
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            font-size: 90px;
-
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-
-        }
-
-
-
-        .info {
-
-            background: rgba(255,255,255,0.12);
-
-            backdrop-filter: blur(10px);
-
-            border: 1px solid rgba(255,255,255,0.2);
-
-            border-radius: 20px;
-
-            padding: 35px;
-
-            margin-top: 30px;
-
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-
-        }
-
-
-
-        .info h2 {
-
-            margin-bottom: 25px;
-
-        }
-
-
-
-        .info-grid {
-
+            min-height: 90vh;
             display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 20px;
-
+            grid-template-columns: 1.2fr .8fr;
+            align-items: center;
+            gap: 60px;
+            padding: 70px 0;
         }
 
-
-
-        .info-item {
-
-            background: rgba(255,255,255,0.1);
-
-            padding: 20px;
-
-            border-radius: 12px;
-
-        }
-
-
-
-        .info-item strong {
-
-            color: #bae6fd;
-
-        }
-
-
-
-        .hobbies {
-
-            margin-top: 30px;
-
-            text-align: center;
-
-        }
-
-
-
-        .hobbies span {
-
-            display: inline-block;
-
-            background: #0ea5e9;
-
-            padding: 10px 20px;
-
-            border-radius: 30px;
-
-            margin: 7px;
-
-        }
-
-
-
-        /* Phần Website của sinh viên */
-
-        .student-websites {
-
-            background: rgba(255, 255, 255, 0.95);
-
-            color: #1e293b;
-
-            border-radius: 20px;
-
-            padding: 35px;
-
-            margin-top: 30px;
-
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-
-        }
-
-
-
-        .student-websites h2 {
-
-            margin-bottom: 20px;
-
-            color: #0f172a;
-
-        }
-
-
-
-        .form-group {
-
-            display: flex;
-
-            gap: 15px;
-
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
             margin-bottom: 25px;
 
-        }
-
-
-
-        .form-group input {
-
-            flex: 1;
-
-            padding: 12px 15px;
-
-            border: 1px solid #cbd5e1;
-
-            border-radius: 8px;
-
-            font-size: 15px;
-
-            outline: none;
-
-        }
-
-
-
-        .form-group button {
-
-            background: #1e3a8a;
-
-            color: white;
-
-            border: none;
-
-            padding: 0 25px;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-        }
-
-
-
-        .form-group button:hover {
-
-            background: #2563eb;
-
-        }
-
-
-
-        .website-list {
-
-            display: flex;
-
-            flex-direction: column;
-
-            gap: 15px;
-
-        }
-
-
-
-        .website-card {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            padding: 15px 20px;
-
-            background: #f8fafc;
-
-            border: 1px solid #e2e8f0;
-
-            border-radius: 10px;
-
-        }
-
-
-
-        .website-info h4 {
-
-            font-size: 16px;
-
-            color: #0f172a;
-
-            margin-bottom: 4px;
-
-        }
-
-
-
-        .website-info a {
-
-            color: #2563eb;
-
-            text-decoration: none;
-
-            font-size: 14px;
-
-        }
-
-
-
-        .website-info a:hover {
-
-            text-decoration: underline;
-
-        }
-
-
-
-        .website-actions {
-
-            display: flex;
-
-            gap: 8px;
-
-        }
-
-
-
-        .btn {
-
-            padding: 6px 14px;
-
-            border-radius: 6px;
+            color: #67e8f9;
+            background: rgba(34,211,238,.08);
+            border: 1px solid rgba(34,211,238,.3);
+            border-radius: 100px;
 
             font-size: 13px;
+            font-weight: 600;
 
-            font-weight: bold;
-
-            cursor: pointer;
-
-            border: none;
-
+            box-shadow: 0 0 25px rgba(34,211,238,.08);
         }
 
-
-
-        .btn-open {
-
-            background: #f1f5f9;
-
-            color: #0f172a;
-
-            border: 1px solid #cbd5e1;
-
+        .status {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #22c55e;
+            animation: blink 1.5s infinite;
         }
 
-
-
-        .btn-edit {
-
-            background: #fef08a;
-
-            color: #713f12;
-
+        @keyframes blink {
+            50% {
+                opacity: .3;
+            }
         }
 
-
-
-        .btn-delete {
-
-            background: #fee2e2;
-
-            color: #991b1b;
-
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.1;
+            margin-bottom: 22px;
         }
 
+        .hero h1 span {
+            background: linear-gradient(90deg, #22d3ee, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px rgba(34,211,238,.15);
+        }
 
+        .hero h2 {
+            color: #94a3b8;
+            font-size: 21px;
+            margin-bottom: 25px;
+        }
 
-        footer {
+        .hero p {
+            color: #94a3b8;
+            max-width: 650px;
+            line-height: 1.9;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
 
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #001018;
+            font-weight: 800;
+            background: linear-gradient(90deg, #22d3ee, #38bdf8);
+            box-shadow: 0 0 25px rgba(34,211,238,.3);
+            transition: .3s;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(34,211,238,.55);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 700;
+            border: 1px solid #334155;
+            background: rgba(255,255,255,.03);
+            transition: .3s;
+        }
+
+        .btn-outline:hover {
+            border-color: #22d3ee;
+            color: #22d3ee;
+            transform: translateY(-4px);
+        }
+
+        /* ================= AVATAR ================= */
+
+        .avatar-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 310px;
+            height: 310px;
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background:
+                radial-gradient(circle, #0f172a 45%, #07111f 70%);
+
+            border: 2px solid rgba(34,211,238,.6);
+
+            box-shadow:
+                0 0 30px rgba(34,211,238,.25),
+                inset 0 0 50px rgba(34,211,238,.08);
+
+            animation: avatarFloat 4s ease-in-out infinite;
+        }
+
+        .avatar::before,
+        .avatar::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(34,211,238,.3);
+        }
+
+        .avatar::before {
+            inset: -18px;
+            animation: rotate 10s linear infinite;
+        }
+
+        .avatar::after {
+            inset: -35px;
+            border-color: rgba(139,92,246,.25);
+            animation: rotateReverse 14s linear infinite;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateReverse {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes avatarFloat {
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .avatar-icon {
+            font-size: 110px;
+            filter: drop-shadow(0 0 20px rgba(34,211,238,.5));
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #22d3ee;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 32px;
+            margin-top: 10px;
+        }
+
+        /* ================= INFO ================= */
+
+        .info {
+            padding: 50px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-item {
+            position: relative;
+            overflow: hidden;
+            padding: 27px;
+
+            border-radius: 18px;
+            background: rgba(15,23,42,.65);
+            border: 1px solid rgba(255,255,255,.08);
+            backdrop-filter: blur(15px);
+
+            transition: .4s;
+        }
+
+        .info-item::before {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #22d3ee;
+            filter: blur(80px);
+            opacity: 0;
+            right: -40px;
+            top: -40px;
+            transition: .4s;
+        }
+
+        .info-item:hover {
+            transform: translateY(-7px);
+            border-color: rgba(34,211,238,.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,.25);
+        }
+
+        .info-item:hover::before {
+            opacity: .15;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #22d3ee;
+            margin-bottom: 10px;
+        }
+
+        .info-item p {
+            color: #cbd5e1;
+        }
+
+        /* ================= HOBBIES ================= */
+
+        .hobbies {
+            padding: 80px 0;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .hobby {
+            padding: 30px 20px;
             text-align: center;
 
-            padding: 30px;
+            background: rgba(15,23,42,.7);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 18px;
 
-            margin-top: 50px;
-
-            background: rgba(0,0,0,0.2);
-
+            transition: .35s;
         }
 
+        .hobby:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #22d3ee;
+            box-shadow: 0 0 30px rgba(34,211,238,.15);
+        }
 
+        .hobby-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
 
-        @media (max-width: 768px) {
+        .hobby h3 {
+            margin-bottom: 8px;
+        }
 
-            .hero {
+        .hobby p {
+            color: #64748b;
+            font-size: 13px;
+        }
 
-                flex-direction: column-reverse;
+        /* ================= WEBSITE ================= */
 
-                text-align: center;
+        .student-websites {
+            margin: 50px 0 80px;
+            padding: 40px;
 
+            background: rgba(15,23,42,.72);
+            border: 1px solid rgba(255,255,255,.08);
+            border-radius: 24px;
+
+            backdrop-filter: blur(18px);
+            box-shadow: 0 25px 70px rgba(0,0,0,.25);
+        }
+
+        .student-websites h2 {
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr auto;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            outline: none;
+
+            color: white;
+            background: rgba(2,6,23,.7);
+            border: 1px solid #334155;
+
+            transition: .3s;
+        }
+
+        .form-group input:focus {
+            border-color: #22d3ee;
+            box-shadow: 0 0 15px rgba(34,211,238,.12);
+        }
+
+        .form-group button {
+            padding: 0 22px;
+            border: none;
+            border-radius: 10px;
+
+            color: #001018;
+            background: linear-gradient(90deg, #22d3ee, #38bdf8);
+
+            font-weight: 800;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .form-group button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(34,211,238,.3);
+        }
+
+        .website-list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .website-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            padding: 18px 20px;
+
+            background: rgba(2,6,23,.65);
+            border: 1px solid #1e293b;
+            border-radius: 13px;
+
+            transition: .3s;
+        }
+
+        .website-card:hover {
+            border-color: rgba(34,211,238,.35);
+            transform: translateX(5px);
+        }
+
+        .website-info h4 {
+            margin-bottom: 6px;
+        }
+
+        .website-info a {
+            color: #38bdf8;
+            font-size: 13px;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .website-info a:hover {
+            text-decoration: underline;
+        }
+
+        .website-actions {
+            display: flex;
+            gap: 7px;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            padding: 8px 13px;
+            border-radius: 7px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-open {
+            background: #1e293b;
+            color: #e2e8f0;
+        }
+
+        .btn-edit {
+            background: #facc15;
+            color: #422006;
+        }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 35px 20px;
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,.07);
+            background: rgba(0,0,0,.25);
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #22d3ee;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                display: none;
             }
 
-            .content h1 { font-size: 40px; }
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
 
-            .avatar { width: 220px; height: 220px; font-size: 65px; }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
 
-            .info-grid { grid-template-columns: 1fr; }
+            .hero-buttons {
+                justify-content: center;
+            }
 
-            nav { display: none; }
+            .avatar-wrapper {
+                order: -1;
+            }
 
-            .form-group { flex-direction: column; }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
 
-            .website-card { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .hobby-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group button {
+                padding: 14px;
+            }
         }
 
+        @media (max-width: 550px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .avatar {
+                width: 220px;
+                height: 220px;
+            }
+
+            .avatar-icon {
+                font-size: 75px;
+            }
+
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .student-websites {
+                padding: 25px 18px;
+            }
+
+            .website-card {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .website-actions {
+                width: 100%;
+            }
+
+            .btn {
+                flex: 1;
+            }
+        }
     </style>
-
 </head>
-
-
 
 <body>
 
+    <div class="glow"></div>
+    <div class="glow2"></div>
 
-
+    <!-- HEADER -->
     <header>
 
-        <h2>🌐 Phạm Quang Phú</h2>
+        <div class="logo">
+            PHÚ<span>.DEV</span>
+        </div>
 
         <nav>
-
             <a href="#home">Trang chủ</a>
-
             <a href="#about">Giới thiệu</a>
-
             <a href="#hobby">Sở thích</a>
-
-            <a href="#websites">Web sinh viên</a>
-
+            <a href="#websites">Website</a>
         </nav>
 
     </header>
 
 
-
     <main class="container">
 
-
-
-        <!-- Phần giới thiệu -->
-
+        <!-- HERO -->
         <section class="hero" id="home">
 
-            <div class="content">
+            <div>
 
-                <h1>Xin chào, tôi là <span>Phạm Quang Phú</span> 👋</h1>
+                <div class="badge">
+                    <span class="status"></span>
+                    ĐANG HỌC & PHÁT TRIỂN
+                </div>
 
-                <h2>💻 Lớp Công nghệ thông tin 1 - K24</h2>
+                <h1>
+                    Xin chào,<br>
+                    tôi là <span>Phạm Quang Phú</span>
+                </h1>
+
+                <h2>💻 Information Technology Student</h2>
 
                 <p>
-
-                    Chào mừng bạn đến với trang giới thiệu bản thân của tôi.
-
-                    Tôi là Phạm Quang Phú, hiện đang học tập tại lớp <strong>Công nghệ thông tin 1 - K24</strong>.
-
+                    Chào mừng bạn đến với website cá nhân của tôi.
+                    Tôi là sinh viên Công nghệ thông tin 1 - K24,
+                    yêu thích lập trình, công nghệ và khám phá những điều mới.
                 </p>
 
                 <p>
-
-                    Tôi yêu thích công nghệ, lập trình và luôn mong muốn học hỏi thêm những kiến thức mới.
-
+                    Mục tiêu của tôi là không ngừng học hỏi và trở thành
+                    một lập trình viên giỏi trong tương lai.
                 </p>
+
+                <div class="hero-buttons">
+
+                    <a class="btn-main" href="#about">
+                        Khám phá tôi →
+                    </a>
+
+                    <a class="btn-outline" href="#websites">
+                        🌐 Website sinh viên
+                    </a>
+
+                </div>
 
             </div>
 
-            <div class="avatar">👨‍💻</div>
+
+            <div class="avatar-wrapper">
+
+                <div class="avatar">
+
+                    <div class="avatar-icon">
+                        👨‍💻
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
 
-
-        <!-- Thông tin cá nhân -->
-
+        <!-- THÔNG TIN -->
         <section class="info" id="about">
 
-            <h2>📋 Thông tin cá nhân</h2>
+            <div class="section-title">
+
+                <small>ABOUT ME</small>
+
+                <h2>Thông tin cá nhân</h2>
+
+            </div>
+
 
             <div class="info-grid">
 
                 <div class="info-item">
 
-                    <strong>👤 Họ và tên</strong>
+                    <strong>👤 HỌ VÀ TÊN</strong>
 
                     <p>Phạm Quang Phú</p>
 
                 </div>
 
+
                 <div class="info-item">
 
-                    <strong>🎓 Lớp</strong>
+                    <strong>🎓 LỚP</strong>
 
                     <p>Công nghệ thông tin 1 - K24</p>
 
                 </div>
 
+
                 <div class="info-item">
 
-                    <strong>💻 Chuyên ngành</strong>
+                    <strong>💻 CHUYÊN NGÀNH</strong>
 
                     <p>Công nghệ thông tin</p>
 
                 </div>
 
+
                 <div class="info-item">
 
-                    <strong>🎯 Mục tiêu</strong>
+                    <strong>🎯 MỤC TIÊU</strong>
 
                     <p>Trở thành một lập trình viên giỏi</p>
 
@@ -634,214 +851,402 @@
         </section>
 
 
+        <!-- SỞ THÍCH -->
+        <section class="hobbies" id="hobby">
 
-        <!-- Sở thích -->
+            <div class="section-title">
 
-        <section class="info hobbies" id="hobby">
+                <small>MY INTERESTS</small>
 
-            <h2>❤️ Sở thích của tôi</h2>
+                <h2>Sở thích của tôi</h2>
 
-            <span>💻 Lập trình</span>
+            </div>
 
-            <span>🎮 Chơi game</span>
 
-            <span>🎵 Nghe nhạc</span>
+            <div class="hobby-grid">
 
-            <span>📚 Học công nghệ</span>
+                <div class="hobby">
+
+                    <div class="hobby-icon">💻</div>
+
+                    <h3>Lập trình</h3>
+
+                    <p>Khám phá và xây dựng những sản phẩm mới.</p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">🎮</div>
+
+                    <h3>Chơi game</h3>
+
+                    <p>Giải trí và khám phá thế giới game.</p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">🎵</div>
+
+                    <h3>Nghe nhạc</h3>
+
+                    <p>Thư giãn và tìm cảm hứng từ âm nhạc.</p>
+
+                </div>
+
+
+                <div class="hobby">
+
+                    <div class="hobby-icon">📚</div>
+
+                    <h3>Học công nghệ</h3>
+
+                    <p>Luôn cập nhật kiến thức công nghệ mới.</p>
+
+                </div>
+
+            </div>
 
         </section>
 
 
-
-        <!-- Phần Website của sinh viên có chức năng Đầy đủ -->
-
+        <!-- WEBSITE -->
         <section class="student-websites" id="websites">
 
-            <h2>Website của sinh viên</h2>
+            <h2>🌐 Website của sinh viên</h2>
 
-           
+            <p class="description">
+                Nhập tên và link website cá nhân để chia sẻ với mọi người.
+            </p>
+
 
             <div class="form-group">
 
-                <input type="text" id="nameInput" placeholder="Tên sinh viên">
+                <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="Tên sinh viên"
+                >
 
-                <input type="text" id="urlInput" placeholder="https://tenwebsite-cua-ban.com">
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://website-cua-ban.com"
+                >
 
-                <button id="addBtn">Thêm website</button>
+                <button id="addBtn">
+                    + Thêm website
+                </button>
 
             </div>
-
-            <p style="font-size: 13px; color: #64748b; margin-top: -15px; margin-bottom: 25px;">Nhập tên và link website cá nhân để chia sẻ với mọi người.</p>
-
 
 
             <div class="website-list" id="websiteList">
 
-                <!-- Hoàng Phú Tân -->
-
-               
-
-               
-
             </div>
 
         </section>
 
-
-
     </main>
 
 
-
+    <!-- FOOTER -->
     <footer>
 
-        <p>© 2026 - Phạm Quang Phú | Công nghệ thông tin 1 - K24</p>
+        <p>
+            © 2026 <span>Phạm Quang Phú</span>
+            | Công nghệ thông tin 1 - K24
+        </p>
 
     </footer>
 
 
-
-    <!-- Đoạn mã JavaScript giúp các nút bấm hoạt động thực tế -->
-
+    <!-- JAVASCRIPT -->
     <script>
 
-        const addBtn = document.getElementById('addBtn');
-
-        const nameInput = document.getElementById('nameInput');
-
-        const urlInput = document.getElementById('urlInput');
-
-        const websiteList = document.getElementById('websiteList');
+        const addBtn = document.getElementById("addBtn");
+        const nameInput = document.getElementById("nameInput");
+        const urlInput = document.getElementById("urlInput");
+        const websiteList = document.getElementById("websiteList");
 
 
+        // ================= THÊM WEBSITE =================
 
-        // 1. Chức năng Thêm website mới
+        addBtn.addEventListener("click", addWebsite);
 
-        addBtn.addEventListener('click', () => {
+
+        // Cho phép nhấn Enter để thêm
+
+        urlInput.addEventListener("keydown", function(e) {
+
+            if (e.key === "Enter") {
+                addWebsite();
+            }
+
+        });
+
+
+        function addWebsite() {
 
             const name = nameInput.value.trim();
-
-            const url = urlInput.value.trim();
-
+            let url = urlInput.value.trim();
 
 
             if (!name || !url) {
 
-                alert('Vui lòng nhập đầy đủ tên sinh viên và đường dẫn website!');
+                alert("⚠️ Vui lòng nhập đầy đủ tên và link website!");
 
                 return;
 
             }
 
 
+            // Tự động thêm https://
 
-            const card = document.createElement('div');
+            if (!url.startsWith("http://") && !url.startsWith("https://")) {
 
-            card.className = 'website-card';
+                url = "https://" + url;
+
+            }
+
+
+            createWebsiteCard(name, url);
+
+
+            nameInput.value = "";
+            urlInput.value = "";
+
+            nameInput.focus();
+
+        }
+
+
+        // ================= TẠO CARD =================
+
+        function createWebsiteCard(name, url) {
+
+            const card = document.createElement("div");
+
+            card.className = "website-card";
+
 
             card.innerHTML = `
 
                 <div class="website-info">
 
-                    <h4>${name}</h4>
+                    <h4>👨‍💻 ${escapeHTML(name)}</h4>
 
-                    <a href="${url}" target="_blank">${url}</a>
+                    <a
+                        href="${escapeHTML(url)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ${escapeHTML(url)}
+                    </a>
 
                 </div>
 
+
                 <div class="website-actions">
 
-                    <button class="btn btn-open" onclick="window.open('${url}', '_blank')">Mở website</button>
+                    <button class="btn btn-open">
+                        Mở
+                    </button>
 
-                    <button class="btn btn-edit">Sửa</button>
+                    <button class="btn btn-edit">
+                        Sửa
+                    </button>
 
-                    <button class="btn btn-delete">Xóa</button>
+                    <button class="btn btn-delete">
+                        Xóa
+                    </button>
 
                 </div>
 
             `;
 
-           
 
             websiteList.appendChild(card);
 
-            nameInput.value = '';
-
-            urlInput.value = '';
-
-        });
+        }
 
 
+        // ================= XỬ LÝ NÚT =================
 
-        // 2. Chức năng Xóa và Sửa website trong danh sách
+        websiteList.addEventListener("click", function(e) {
 
-        websiteList.addEventListener('click', (e) => {
+            const card = e.target.closest(".website-card");
 
-            // Nút Xóa
 
-            if (e.target.classList.contains('btn-delete')) {
+            if (!card) return;
 
-                e.target.closest('.website-card').remove();
+
+            // MỞ WEBSITE
+
+            if (e.target.classList.contains("btn-open")) {
+
+                const link = card.querySelector("a").href;
+
+                window.open(link, "_blank");
 
             }
 
 
+            // XÓA
 
-            // Nút Sửa / Lưu
+            if (e.target.classList.contains("btn-delete")) {
 
-            if (e.target.classList.contains('btn-edit')) {
+                if (confirm("Bạn có chắc muốn xóa website này?")) {
 
-                const card = e.target.closest('.website-card');
-
-                const h4 = card.querySelector('h4');
-
-                const a = card.querySelector('a');
-
-
-
-                if (e.target.innerText === 'Sửa') {
-
-                    h4.innerHTML = `<input type="text" value="${h4.innerText}" id="editName" style="padding: 4px; width: 100%;">`;
-
-                    a.outerHTML = `<input type="text" value="${a.href}" id="editUrl" style="padding: 4px; width: 100%; margin-top: 4px;">`;
-
-                    e.target.innerText = 'Lưu';
-
-                    e.target.style.background = '#22c55e';
-
-                    e.target.style.color = '#fff';
-
-                } else {
-
-                    const newName = document.getElementById('editName').value;
-
-                    const newUrl = document.getElementById('editUrl').value;
-
-
-
-                    card.querySelector('.website-info').innerHTML = `
-
-                        <h4>${newName}</h4>
-
-                        <a href="${newUrl}" target="_blank">${newUrl}</a>
-
-                    `;
-
-                    e.target.innerText = 'Sửa';
-
-                    e.target.style.background = '';
-
-                    e.target.style.color = '';
+                    card.remove();
 
                 }
 
             }
 
+
+            // SỬA
+
+            if (e.target.classList.contains("btn-edit")) {
+
+                editWebsite(card, e.target);
+
+            }
+
         });
+
+
+        // ================= SỬA WEBSITE =================
+
+        function editWebsite(card, button) {
+
+            const title = card.querySelector("h4");
+            const link = card.querySelector("a");
+
+
+            if (button.innerText === "Sửa") {
+
+                const currentName =
+                    title.innerText.replace("👨‍💻 ", "");
+
+                const currentUrl =
+                    link.href;
+
+
+                card.dataset.oldName = currentName;
+                card.dataset.oldUrl = currentUrl;
+
+
+                title.innerHTML = `
+                    <input
+                        class="edit-name"
+                        value="${escapeHTML(currentName)}"
+                        style="
+                            width:100%;
+                            padding:7px;
+                            border-radius:6px;
+                            border:1px solid #334155;
+                            background:#020617;
+                            color:white;
+                        "
+                    >
+                `;
+
+
+                link.outerHTML = `
+                    <input
+                        class="edit-url"
+                        value="${escapeHTML(currentUrl)}"
+                        style="
+                            width:100%;
+                            padding:7px;
+                            margin-top:5px;
+                            border-radius:6px;
+                            border:1px solid #334155;
+                            background:#020617;
+                            color:white;
+                        "
+                    >
+                `;
+
+
+                button.innerText = "Lưu";
+
+                button.style.background = "#22c55e";
+                button.style.color = "white";
+
+            }
+
+
+            else {
+
+                const newName =
+                    card.querySelector(".edit-name").value.trim();
+
+                let newUrl =
+                    card.querySelector(".edit-url").value.trim();
+
+
+                if (!newName || !newUrl) {
+
+                    alert("⚠️ Không được để trống!");
+
+                    return;
+
+                }
+
+
+                if (
+                    !newUrl.startsWith("http://") &&
+                    !newUrl.startsWith("https://")
+                ) {
+
+                    newUrl = "https://" + newUrl;
+
+                }
+
+
+                card.querySelector(".website-info").innerHTML = `
+
+                    <h4>👨‍💻 ${escapeHTML(newName)}</h4>
+
+                    <a
+                        href="${escapeHTML(newUrl)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        ${escapeHTML(newUrl)}
+                    </a>
+
+                `;
+
+
+                button.innerText = "Sửa";
+
+                button.style.background = "";
+                button.style.color = "";
+
+            }
+
+        }
+
+
+        // ================= BẢO MẬT HTML =================
+
+        function escapeHTML(text) {
+
+            const div = document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
 
     </script>
 
 </body>
-
-
 </html>
